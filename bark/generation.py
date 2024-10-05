@@ -304,6 +304,7 @@ def preload_models(
         fine_use_small=False,
         codec_use_gpu=True,
         force_reload=False,
+        device=None
 ):
     """Load all the necessary models for the pipeline."""
     if _grab_best_device() == "cpu" and (
