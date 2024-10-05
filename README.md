@@ -168,13 +168,13 @@ python -m bark --text "Hello, my name is Suno." --output_filename "example.wav"
 ## 💻 Installation
 *‼️ CAUTION ‼️ Do NOT use `pip install bark`. It installs a different package, which is not managed by Suno.*
 ```bash
-pip install git+https://github.com/suno-ai/bark.git
+pip install git+https://github.com/Sinoosoida/bark-streaming.git
 ```
 
 or
 
 ```bash
-git clone https://github.com/suno-ai/bark
+git clone https://github.com/Sinoosoida/bark-streaming.git
 cd bark && pip install . 
 ```
 
