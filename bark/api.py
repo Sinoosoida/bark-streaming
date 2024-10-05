@@ -1,5 +1,5 @@
 from typing import Dict, Optional, Union
-
+import time
 import numpy as np
 
 from .generation import codec_decode, generate_coarse, generate_fine, generate_text_semantic
@@ -104,12 +104,15 @@ def generate_audio(
     Returns:
         numpy audio array at sample frequency 24khz
     """
+    start_time = time.time()
     semantic_tokens = text_to_semantic(
         text,
         history_prompt=history_prompt,
         temp=text_temp,
         silent=silent,
     )
+    print("text_to_semantic took: ", time.time() - start_time)
+    start_time = time.time()
     out = semantic_to_waveform(
         semantic_tokens,
         history_prompt=history_prompt,
@@ -117,6 +120,7 @@ def generate_audio(
         silent=silent,
         output_full=output_full,
     )
+    print("semantic_to_waveform took: ", time.time() - start_time)
     if output_full:
         full_generation, audio_arr = out
         return full_generation, audio_arr
